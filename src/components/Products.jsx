@@ -5,7 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import "../Styles/products.css";
 import axios from "axios";
-import SinglePage from "./Keyidpage";
+
+import Keyidpage from "./Keyidpage";
 
 function Products() {
   const [data, setData] = useState([]);
@@ -76,8 +77,8 @@ function Products() {
       <div className="underline"></div>
       <div className="displaydata">
         <div className="category">
-          <p onClick={() => handleFilter()}><h5>Apparel</h5></p>
-          <p onClick={() => handleFilter("Accessories")}><h4>Accessories</h4></p>
+          <p onClick={() => handleFilter()}>Apparel</p>
+          <p onClick={() => handleFilter("Accessories")}>Accessories</p>
           <p onClick={() => handleFilter("Best-sellers")} name="Best sellers">
           Best sellers
           </p>
@@ -88,13 +89,13 @@ function Products() {
         </div>
         <div className="apidata">
           <div>
-            <Slider {...settings}>
-              {!filters
-                ? data.map((el) => {
-                    return <SinglePage {...el} />;
-                  })
-                : filterData && filterData.map((e) => <SinglePage {...e} />)}
-            </Slider>
+          <Slider {...settings}>
+  {!filters
+    ? data.map((el) => {
+        return <Keyidpage key={el.id} {...el} />;
+      })
+    : filterData.map((e) => <Keyidpage key={e.id} {...e} />)}
+</Slider>
           </div>
         </div>
       </div>

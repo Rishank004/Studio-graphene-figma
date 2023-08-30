@@ -10,7 +10,7 @@ const Keyidpage = (el) => {
   return (
     <div key={el.id}>
       <div className="display-data">
-        <img className="api-image" src={el.category.image} />
+        <img className="api-image" src={el.image} />
         <p className="pd-name">{el.category.name}</p>
         <p className="pd-des">{el.description}</p>
         <p className="pd-price">${el.price}</p>
